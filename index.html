@@ -12,13 +12,14 @@
 </head>
 <body>
    <header>
-    <a href="#" class="logo"><span>ZAL</span>iwa</a>
+    <a href="javascript:void(0);" class="logo" onclick="window.location.reload();"><span>ZAL</span>iwa</a>
+    <div class="menutoggle" onclick="toggleMenu();">☰</div>
     <ul class="navbar">
-        <li><a href="#">Acceuil</a></li>
-        <li><a href="#">Menu</a></li>
-        <li><a href="#">A propos</a></li>
-        <li><a href="#">contact</a></li>
-        <a href="#" class="btn-reserve">Reservation</a>
+        <li><a href="#banniere" onclick="toggleMenu();">Acceuil</a></li>
+        <li><a href="#apropos" onclick="toggleMenu();">A propos</a></li>
+        <li><a href="#menu" onclick="toggleMenu();">Menu</a></li>
+        <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
+        <a href="#" class="btn-reserve" onclick="toggleMenu();">Reservation</a>
     </ul>
    </header>
    <section class="banniere" id="banniere">
@@ -32,7 +33,7 @@
     <div class="row">
         <div class="col50">
             <h2 class="titre-texte"><span>A</span> propos de nous</h2>
-            <p>ZAliwa n'est pas qu'un simple service de repas ; c'est une révolution culinaire qui verra le jour en 2025. Fondé par des experts passionnés de gastronomie, notre projet est né d'un constat simple : une cuisine d'exception doit être accessible à tous, sans se compliquer la vie.
+            <p class="texte">ZAliwa n'est pas qu'un simple service de repas ; c'est une révolution culinaire qui verra le jour en 2025. Fondé par des experts passionnés de gastronomie, notre projet est né d'un constat simple : une cuisine d'exception doit être accessible à tous, sans se compliquer la vie.
                 <br>Notre promesse ? Vous apporter l'expertise de grands chefs et le plaisir de plats sophistiqués, tout près de chez vous, à moindre coût et surtout, sans aucun frais de livraison.
                 <br>Notre Philosophie : Le Luxe du Pratique
                 <br>Chez ZAliwa, nous croyons que vous méritez de savourer des plats raffinés sans avoir à franchir les portes d'un restaurant étoilé ou à payer des suppléments qui alourdissent l'addition. Nous maîtrisons toute la chaîne, de la conception de nos recettes uniques à leur livraison à votre porte, pour vous garantir un rapport qualité-prix inégalé.
@@ -101,9 +102,55 @@
                 </div>
             </div>
         </div>
-            <div class="titre">
-                <a href="#" class="btn-reserve">voir plus</a>
-            </div>
+       <section class="contact" id="contact">
+           <div class="contact-container">
+               <h2>Contact</h2>
+               <p>contactez-nous ici</p>
+
+               <div class="contactform">
+                   <h3>Envoyer un message</h3>
+                   <form class="text-center border-light p-5 mt-5 w-50" action="https://formspree.io/f/xzzjroev" method="POST">
+                       <input type="text" name="nom" placeholder="Nom" required>
+                       <input type="email" name="email" placeholder="email" required>
+                       <textarea placeholder="message" rows="4" required></textarea>
+                       <button type="submit" class="btn-envoyer">envoyer</button>
+                   </form>
+               </div>
+           </div>
    </section>
+       <script type="text/javascript">
+           window.addEventListener('scroll', function(){
+               const header = document.querySelector('header');
+               header.classList.toggle("sticky", window.scrollY > 0);
+            });
+               
+           document.querySelector('.menutoggle').addEventListener('click', function() {
+               document.querySelector('.navbar').classList.toggle('active');
+           });
+
+    /* //  fermer le menu quand on clique sur un lien */
+           document.querySelectorAll('.navbar a').forEach(link => {
+               link.addEventListener('click', () => {
+                   document.querySelector('.navbar').classList.remove('active');
+               });
+           });  
+           
+           document.addEventListener('click', function(event) {
+               const navbar = document.querySelector('.navbar');
+               const menuToggle = document.querySelector('.menutoggle');
+               
+               if (navbar.classList.contains('active') &&
+                   !navbar.contains(event.target) && 
+                   !menuToggle.contains(event.target)) {
+                   navbar.classList.remove('active');
+               }
+           });  
+           document.querySelector('.logo').addEventListener('click', function(e) {
+               e.preventDefault(); // Empêche le comportement par défaut du href="#"
+               window.scrollTo({ top: 0, behavior: 'smooth' }); // Revient en haut en douceur
+           }); 
+
+       </script>
 </body>
+
 </html>
