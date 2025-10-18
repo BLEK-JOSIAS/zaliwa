@@ -73,11 +73,31 @@ header .navbar li a:hover{
     position: relative;
     width: 100%;
     min-height: 100vh;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("food2.png");
-    background-size: cover;
+
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide.active {
+    opacity: 1;
 }
 
 
@@ -131,9 +151,9 @@ header .navbar li a:hover{
     position: relative;
     width: 100%;
     display: flex;
-    gap: 30px;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
 }
 
 .row .col50{
@@ -148,7 +168,7 @@ header .navbar li a:hover{
 .titre_texte{
     color: #000;
     font-size: 2em;
-    font-weight: 300px;
+    font-weight: 300;
     text-transform: capitalize;
 }
 
@@ -162,6 +182,7 @@ header .navbar li a:hover{
     max-width:900px;
     padding: 0px;
     margin: 0px;
+    line-height: 2;
 }
 
 .row .col50 img{
@@ -537,4 +558,72 @@ header.sticky .navbar a:hover{
     .navbar.active {
         display: flex;
     }
+}
+
+
+/* MODALE */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close:hover {
+    color: #000;
+}
+
+#reservationForm input,
+#reservationForm select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#reservationForm label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.btn-reserver {
+    width: 100%;
+    padding: 12px;
+    background: #ff004f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn-reserver:hover {
+    background: #e00045;
 }
