@@ -19,29 +19,36 @@
         <li><a href="#apropos" onclick="toggleMenu();">A propos</a></li>
         <li><a href="#menu" onclick="toggleMenu();">Menu</a></li>
         <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
-        <a href="#" class="btn-reserve" onclick="toggleMenu();">Reservation</a>
+        <a href="#reservationModal" class="btn-reserve" onclick="toggleMenu();">Reservation</a>
     </ul>
    </header>
    <section class="banniere" id="banniere">
+    <div class="slider-container">
+        <div class="slide active">
+            <img src="slide1.png" alt="Plat 1">
+        </div>
+        <div class="slide">
+            <img src="slide2.png" alt="Plat 2">
+        </div>
+        <div class="slide">
+            <img src="slide3.png" alt="Plat 3">
+        </div>
+    </div>
     <div class="contenu">
         <h2>DÉCOUVREZ L'EXELLENCE CULINAIRE TOUT PRÈS DE CHEZ VOUS</h2>
         <p>N'attendez plus! passez votre commande la veille et bénéficiez d'un service de qualité le lendemain, sans frais de livraison !</p>
         <a href="#" class="btn">Réservation</a>
     </div>
-   </section>
+</section>
    <section class="apropos" id="apropos" >
     <div class="row">
         <div class="col50">
             <h2 class="titre-texte"><span>A</span> propos de nous</h2>
-            <p class="texte">ZAliwa n'est pas qu'un simple service de repas ; c'est une révolution culinaire qui verra le jour en 2025. Fondé par des experts passionnés de gastronomie, notre projet est né d'un constat simple : une cuisine d'exception doit être accessible à tous, sans se compliquer la vie.
-                <br>Notre promesse ? Vous apporter l'expertise de grands chefs et le plaisir de plats sophistiqués, tout près de chez vous, à moindre coût et surtout, sans aucun frais de livraison.
-                <br>Notre Philosophie : Le Luxe du Pratique
-                <br>Chez ZAliwa, nous croyons que vous méritez de savourer des plats raffinés sans avoir à franchir les portes d'un restaurant étoilé ou à payer des suppléments qui alourdissent l'addition. Nous maîtrisons toute la chaîne, de la conception de nos recettes uniques à leur livraison à votre porte, pour vous garantir un rapport qualité-prix inégalé.
-                <br>L'Expertise Gastronomique : Nos créations culinaires sont le fruit du savoir-faire de nos experts.
-                <br>La Proximité : Nous sommes et serons toujours "tout près de chez vous".
-                <br>L'Accessibilité : Des prix justes et zéro frais de livraison, c'est notre engagement.
-                <br>Préparez-vous à vivre une nouvelle expérience du goût. En 2025, ZAliwa réinvente la livraison de qualité.
-                <br>La gastronomie de demain, à votre porte aujourd'hui.
+            <p class="texte"> notre projet est né d'un constat simple : une cuisine d'exception doit être accessible à tous, sans se compliquer la vie.
+                Notre promesse ? Vous apporter l'expertise de grands chefs et le plaisir de plats sophistiqués, tout près de chez vous, à moindre coût et surtout, sans aucun frais de livraison.
+                Notre Philosophie : Le Luxe du Pratique
+                Chez ZAliwa, nous croyons que vous méritez de savourer des plats raffinés sans avoir à franchir les portes d'un restaurant étoilé ou à payer des suppléments qui alourdissent l'addition. Nous maîtrisons toute la chaîne, de la conception de nos recettes uniques à leur livraison à votre porte, pour vous garantir un rapport qualité-prix inégalé.
+                L'Expertise Gastronomique : Nos créations culinaires sont le fruit du savoir-faire de nos experts.
             </p>
         </div>
         <div class="col50">
@@ -54,12 +61,41 @@
    <section class="menu" id="menu">
     <div class="titre">
             <h2 class="titre-texte"><span>M</span>enu</h2>
-            <p>ZAliwa n'est pas qu'un simple service de repas ; c'est une révolution culinaire qui verra le jour en 2025. Fondé par des experts passionnés de gastronomie, notre projet est né d'un constat simple : une cuisine d'exception doit être accessible à tous, sans se compliquer la vie.
-                <br>Notre promesse ? Vous apporter l'expertise de grands chefs et le plaisir de plats sophistiqués, tout près de chez vous, à moindre coût et surtout, sans aucun frais de livraison.
-                <br>Notre Philosophie : Le Luxe du Pratique
-                <br>Chez ZAliwa, nous croyons que vous méritez de savourer des plats raffinés sans avoir à franchir les portes d'un restaurant étoilé ou à payer des suppléments qui alourdissent l'addition. Nous maîtrisons toute la chaîne, de la conception de nos recettes uniques à leur livraison à votre porte, pour vous garantir un rapport qualité-prix inégalé.
-            </p>
+            <p>ZAliwa n'est pas qu'un simple service de repas ; c'est une révolution culinaire qui verra le jour en 2025. 
+           <a href="#" class="btn" id="openModal">Réservation</a>
         </div>
+
+    <!-- Modale -->
+    <div id="reservationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Réserver un plat</h2>
+            <form id="reservationForm">
+                <input type="text" name="nom" placeholder="Nom" required>
+                <input type="text" name="prenom" placeholder="Prénom" required>
+                <input type="tel" name="telephone" placeholder="Téléphone" required>
+                <input type="text" name="lieu_livraison" placeholder="Lieu de livraison" required>
+
+                <label for="plat">Choisir un plat du jour :</label>
+                <select name="plat" required>
+                    <option value="">Sélectionnez un plat</option>
+                    <option value="Tchep poulet/poisson">Lundi: Tchep poulet/poisson</option>
+                    <option value="Attieke+ poisson/poulet">Mardi: Attieke+ poisson/poulet</option>
+                    <option value="Sauce feuille+ riz + viande/poisson">Mercredi: Sauce feuille+ riz + viande/poisson</option>
+                    <option value="Igname grillé ou bouilli /alloco poulet /poisson et frites">Jeudi: Igname grillé ou bouilli /alloco poulet /poisson et frites</option>
+                    <option value="Coucous au poulet">Vendredi: Coucous au poulet</option>
+                </select>
+
+                <label for="quantite">Quantité :</label>
+                <input type="number" name="quantite" min="1" value="1" required>
+
+                <button type="submit" class="btn-reserver">Confirmer</button>
+
+                <!-- Message de confirmation -->
+                <div id="reservationMessage" style="margin-top: 10px; font-weight: bold;"></div>
+            </form>
+        </div>
+    </div>
         <div class="contenu">
             <div class="box">
                 <div class="imbox">
@@ -102,55 +138,166 @@
                 </div>
             </div>
         </div>
-       <section class="contact" id="contact">
-           <div class="contact-container">
-               <h2>Contact</h2>
-               <p>contactez-nous ici</p>
+            <section class="contact" id="contact">
+    <div class="contact-container">
+        <h2>Contact</h2>
+        <p>contactez-nous ici</p>
+        
+        <div class="contactform">
+            <h3>Envoyer un message</h3>
+            <form class="text-center border-light p-5 mt-5 w-50" id="contact-form" action="https://formspree.io/f/xzzjroev" method="POST">
+                <input type="text" name="nom" placeholder="Nom" required>
+                <input type="email" name="email" placeholder="email" required>
+                <textarea name="message" placeholder="message" rows="4" required></textarea>
+                <button type="submit" class="btn-envoyer">envoyer</button>
 
-               <div class="contactform">
-                   <h3>Envoyer un message</h3>
-                   <form class="text-center border-light p-5 mt-5 w-50" action="https://formspree.io/f/xzzjroev" method="POST">
-                       <input type="text" name="nom" placeholder="Nom" required>
-                       <input type="email" name="email" placeholder="email" required>
-                       <textarea placeholder="message" rows="4" required></textarea>
-                       <button type="submit" class="btn-envoyer">envoyer</button>
-                   </form>
-               </div>
-           </div>
+                <!--zonne pour afficher le message d'érreur ou de succès-->
+                <div id="form-message" style="margin-top: 10px; font-weight: bold;"></div>
+            </form>
+        </div>
+    </div>
+</section>
    </section>
-       <script type="text/javascript">
-           window.addEventListener('scroll', function(){
-               const header = document.querySelector('header');
-               header.classList.toggle("sticky", window.scrollY > 0);
-            });
-               
-           document.querySelector('.menutoggle').addEventListener('click', function() {
-               document.querySelector('.navbar').classList.toggle('active');
-           });
+   <script type="text/javascript">
+     window.addEventListener('scroll', function(){
+        const header = document.querySelector('header');
+        header.classList.toggle("sticky", window.scrollY > 0);
+    });
+
+    document.querySelector('.menutoggle').addEventListener('click', function() {
+        document.querySelector('.navbar').classList.toggle('active');
+    });
 
     /* //  fermer le menu quand on clique sur un lien */
-           document.querySelectorAll('.navbar a').forEach(link => {
-               link.addEventListener('click', () => {
-                   document.querySelector('.navbar').classList.remove('active');
-               });
-           });  
-           
-           document.addEventListener('click', function(event) {
-               const navbar = document.querySelector('.navbar');
-               const menuToggle = document.querySelector('.menutoggle');
-               
-               if (navbar.classList.contains('active') &&
-                   !navbar.contains(event.target) && 
-                   !menuToggle.contains(event.target)) {
-                   navbar.classList.remove('active');
-               }
-           });  
-           document.querySelector('.logo').addEventListener('click', function(e) {
-               e.preventDefault(); // Empêche le comportement par défaut du href="#"
-               window.scrollTo({ top: 0, behavior: 'smooth' }); // Revient en haut en douceur
-           }); 
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('.navbar').classList.remove('active');
+        });
+    });  
+    
+    document.addEventListener('click', function(event) {
+        const navbar = document.querySelector('.navbar');
+        const menuToggle = document.querySelector('.menutoggle');
 
-       </script>
+        if (navbar.classList.contains('active') &&
+            !navbar.contains(event.target) && 
+            !menuToggle.contains(event.target)) {
+            navbar.classList.remove('active');
+            }
+        });  
+    document.querySelector('.logo').addEventListener('click', function(e) {
+        e.preventDefault(); // Empêche le comportement par défaut du href="#"
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Revient en haut en douceur
+    }); 
+
+    /* formulaire d'envoie */
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('contact-form');
+        const messageDiv = document.getElementById('form-message');
+        
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            messageDiv.innerHTML = 'Envoi en cours...';
+            messageDiv.style.color = '#007BFF';
+
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json',
+                },
+            })
+            .then(response => {
+                if (response.ok) {
+                    messageDiv.innerHTML = '✅ Merci ! Votre message a été envoyé.';
+                    messageDiv.style.color = '#28a745';
+                    form.reset();
+                } else {
+                    messageDiv.innerHTML = '❌ Une erreur est survenue.';
+                    messageDiv.style.color = '#dc3545';
+                }
+            })
+            .catch(() => {
+                messageDiv.innerHTML = '❌ Problème de connexion.';
+                messageDiv.style.color = '#dc3545';
+            });
+        });
+    }
+
+    //java-slide
+
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    
+    function showSlide() {
+        // Cache toutes les images
+        slides.forEach(slide => slide.classList.remove('active'));
+
+        // Affiche la suivante
+        slideIndex = (slideIndex + 1) % slides.length;
+        slides[slideIndex].classList.add('active');
+    }
+
+    // Change d'image toutes les 4 secondes
+    setInterval(showSlide, 4000);
+
+    
+     // Ouvrir la modale
+    document.getElementById('openModal').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('reservationModal').style.display = 'block';
+    });
+
+        // Fermer la modale
+    document.querySelector('.close').addEventListener('click', function() {
+        document.getElementById('reservationModal').style.display = 'none';
+    });
+
+        // Fermer la modale si on clique en dehors
+    window.addEventListener('click', function(e) {
+        const modal = document.getElementById('reservationModal');
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+        // Gestion du formulaire
+    document.getElementById('reservationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+        const messageDiv = document.getElementById('reservationMessage');
+
+        messageDiv.innerHTML = 'Envoi en cours...';
+        messageDiv.style.color = '#007BFF';
+
+        // Remplace ton ID Formspree ici
+        fetch('https://formspree.io/f/mnngwkwv', {
+            method: 'POST',
+            body: formData,
+            headers: {
+            'Accept': 'application/json',
+            },
+        })
+        .then(response => {
+            console.log(response); // 👈 Affiche la réponse dans la console
+            if (response.ok) {
+                messageDiv.innerHTML = '✅ Merci ! Votre réservation a été envoyée.';
+                messageDiv.style.color = '#28a745';
+                document.getElementById('reservationForm').reset(); // Vide le formulaire
+            } else {
+                messageDiv.innerHTML = '❌ Une erreur est survenue. Veuillez réessayer.';
+                messageDiv.style.color = '#dc3545';
+            }
+        })
+        .catch(() => {
+            messageDiv.innerHTML = '❌ Problème de connexion.';
+            messageDiv.style.color = '#dc3545';
+        });
+    });
+    });
+   </script>
 </body>
-
 </html>
